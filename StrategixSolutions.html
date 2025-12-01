@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strategix Solutions - Transformación Digital</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #252162;
+            --light: #ffffff;
+            --dark: #1a1a2e;
+            --gray: #f8f9fa;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary) 100%);
+            color: var(--light);
+            padding: 0.75rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .logo-container img {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            line-height: 1.1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* NAV LINKS DESKTOP */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--light);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* BOTÓN MENÚ (MÓVIL) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 22px;
+            height: 2px;
+            background: var(--light);
+            border-radius: 999px;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 50%, var(--light) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px; 
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="10" cy="90" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: slideUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: slideUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--light);
+            color: var(--dark);
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(240, 247, 247, 0.3);
+            animation: slideUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(87, 224, 254, 0.4);
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        /* ========== ABOUT ========== */
+        .about {
+            padding: 100px 0;
+            background: var(--gray);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .about-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-content p + p {
+            margin-top: 1rem;
+        }
+
+        /* ========== SERVICES ========== */
+        .services {
+            padding: 100px 20px;
+            background: var(--gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            justify-content: center;   
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                max-width: 1100px;      
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;       
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .service-card {
+            background: var(--light);
+            padding: 2.5rem 2rem;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-card ul li {
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .service-card ul li::before {
+            content: "✔";
+            color: var(--primary);
+            font-size: 0.9rem;
+            position: absolute;
+            left: 0;
+            top: 3px;
+        }
+
+        /* ========== CONTACTO ========== */
+        .contact-section {
+            background: var(--light);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            color: #555;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-left: 5px;
+        }
+
+        .contact-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========== RESPONSIVE ========== */
+
+        /* Tablets / pantallas medianas */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Móviles */
+        @media (max-width: 768px) {
+            header {
+                padding: 0.6rem 0;
+            }
+
+            nav {
+                padding: 0 1rem;
+            }
+
+            .logo-container img {
+                width: 44px;
+                height: 44px;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            /* Menú: hamburguesa visible, enlaces ocultos por defecto */
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary);
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0.8rem 1.5rem 1.2rem;
+                display: none;
+            }
+
+            .nav-links.nav-open {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 80vh;
+                padding: 100px 1.2rem 2.5rem;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 12px 26px;
+                font-size: 0.95rem;
+            }
+
+            .container {
+                padding: 0 1.2rem;
+            }
+
+            .about-content {
+                font-size: 1rem;
+                line-height: 1.6;
+                text-align: left;
+            }
+
+            .section-title {
+                font-size: 1.9rem;
+                margin-bottom: 1.8rem;
+            }
+
+            .service-card {
+                padding: 1.7rem 1.3rem;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            }
+
+            .contact-section {
+                padding: 70px 15px;
+            }
+
+            .contact-section h2 {
+                font-size: 1.9rem;
+            }
+
+            .contact-section p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Móviles pequeños */
+        @media (max-width: 450px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .about-content {
+                font-size: 0.95rem;
+            }
+
+            .cta-button {
+                padding: 10px 22px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /*  Ajustes de espaciado en móvil */
+        @media (max-width: 768px) {
+            .about {
+                padding-bottom: 40px; 
+            }
+
+            .about-content {
+                margin-bottom: 1.5rem !important; 
+            }
+
+            .services {
+                padding-top: 40px; 
+            }
+
+            .section-title {
+                margin-top: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .about-content p {
+                margin-bottom: 0.8rem;
+            }
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="Imagenes/logo fondo azul.png" alt="Logo Strategix Solution" />
+                <div class="logo">
+                    <span>Strategix</span>
+                    <span>Solutions</span>
+                </div>
+            </div>
+
+            <!-- Botón menú para móvil -->
+            <button class="menu-toggle" aria-label="Abrir menú de navegación">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Strategix Solutions</h1>
+            <p>Potenciamos el futuro digital</p>
+            <a href="#nosotros" class="cta-button">Descubre más</a>
+        </div>
+    </section>
+
+    <section class="about" id="nosotros">
+        <div class="container">
+            <h2 class="section-title">Quiénes somos</h2>
+            <div class="about-content">
+                <p>
+                    Strategix Solution es una consultora de transformación digital que convierte desafíos complejos en
+                    ventajas competitivas medibles.
+                </p>
+                <p>
+                    Diseñamos ecosistemas tecnológicos a la medida donde los datos se transforman en decisiones
+                    estratégicas y la inteligencia artificial impulsa resultados sostenibles y rentables para nuestros
+                    clientes.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Inteligencia Artificial y Analítica</h3>
+                    <ul>
+                        <li>Modelos de Machine Learning y Deep Learning</li>
+                        <li>IA generativa y modelos predictivos</li>
+                        <li>GeoestrategIA para análisis espacial</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Producto Digital</h3>
+                    <ul>
+                        <li>Productos SaaS basados en IA</li>
+                        <li>Plataformas y productos personalizados</li>
+                        <li>Prototipado y MVPs</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Business Intelligence y Automatización</h3>
+                    <ul>
+                        <li>Tableros BI y reporting avanzado</li>
+                        <li>Customer Journey Analytics</li>
+                        <li>Optimización de KPIs y procesos</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Estrategia &amp; Consultoría</h3>
+                    <ul>
+                        <li>Diagnóstico de madurez digital y analítica</li>
+                        <li>Gobierno de datos y cumplimiento normativo</li>
+                        <li>DataOps y automatización</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contacto">
+        <h2>Contáctenos</h2>
+        <p>¿Desea más información o tiene alguna consulta?</p>
+        <p>
+            Escríbanos a:
+            <a href="mailto:contacto@strategix.com.co">contacto@strategix.com.co</a>
+        </p>
+    </section>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute("href"));
+                if (target) {
+                    target.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+
+                const navLinks = document.querySelector(".nav-links");
+                if (navLinks.classList.contains("nav-open")) {
+                    navLinks.classList.remove("nav-open");
+                }
+            });
+        });
+
+        window.addEventListener("scroll", () => {
+            const header = document.querySelector("header");
+            if (window.scrollY > 100) {
+                header.style.background = "rgba(37,33,98,0.95)";
+            } else {
+                header.style.background = "linear-gradient(135deg, #252162 0%, #252162 100%)";
+            }
+        });
+
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navLinks = document.querySelector(".nav-links");
+
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("nav-open");
+        });
+    </script>
+</body>
+</html>
