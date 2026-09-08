@@ -1,0 +1,2 @@
+# strategix solution landing page
+
