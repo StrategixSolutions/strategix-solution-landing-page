@@ -18,7 +18,7 @@
                     <img src="images/LOGO/IMAGO AZUL SIN FONDO.png">
                 </div>
 
-                <nav>
+                <nav id="mainNav" aria-label="Navegación principal">
                     <a href="#servicios">Servicios</a>
                     <a href="#sectores">Industrias</a>
                     <a href="#casos">Casos</a>
@@ -26,9 +26,12 @@
                     <a href="#equipo">Equipo</a>
                 </nav>
 
-                <div style="display: flex; gap: 12px;">
+                <div class="header-actions">
                     <a href="https://wa.me/5215626000648" class="btn btn-ghost">Contacto</a>
                     <a href="mailto:contacto@strategix.com.co" class="btn btn-primary">Agendar conversación</a>
+                    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="mainNav" aria-expanded="false">
+                        <span></span><span></span><span></span>
+                    </button>
                 </div>
             </div>
         </header>
@@ -400,7 +403,28 @@
 
         <script>
             const header = document.getElementById('siteHeader');
-           
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.getElementById('mainNav');
+
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', () => {
+                    const isOpen = mainNav.classList.toggle('open');
+                    menuToggle.classList.toggle('open', isOpen);
+                    menuToggle.setAttribute('aria-expanded', String(isOpen));
+                    menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+                    document.body.classList.toggle('menu-open', isOpen);
+                });
+                mainNav.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mainNav.classList.remove('open');
+                        menuToggle.classList.remove('open');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        menuToggle.setAttribute('aria-label', 'Abrir menú');
+                        document.body.classList.remove('menu-open');
+                    });
+                });
+            }
+
             const io = new IntersectionObserver((entries) => {
                 entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
             }, {threshold:0.15});
