@@ -56,6 +56,14 @@ img{
     margin-bottom: 22px;
 }
 
+.eyebrow::before{
+    content: '';
+    width: 22px;
+    height: 1px;
+    background: var(--gray-mid);
+    display: inline-block;
+}
+
 @media (prefers-reduced-motion: reduce) {
     html{scroll-behavior: auto;}
 }
@@ -128,6 +136,8 @@ nav a::after{
     transition: width .35s ease;
 }
 
+nav a:hover::after{width: 100%;}
+
 .btn{
     font-family: var(--sans);
     font-weight: 600;
@@ -158,8 +168,6 @@ nav a::after{
     border: 1px solid var(--ink);
     color: var(--ink);
 }
-
-nav a:hover::after{width: 100%;}
 
 .policy-page{
     padding: 130px 0 90px;
@@ -463,4 +471,188 @@ footer{
         overflow-x: auto;
         white-space: nowrap;
     }
+}
+
+/* =========================================================
+   RESPONSIVE REFINEMENT - Strategix Solutions
+   ========================================================= */
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-shrink:0
+}
+
+.menu-toggle{
+    display:none;
+    width:42px;
+    height:42px;
+    padding:9px;
+    border:1px solid var(--line);
+    border-radius:9px;
+    background:var(--white);
+    cursor:pointer;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px
+}
+
+.menu-toggle span{
+    display:block;
+    width:100%;
+    height:2px;
+    background:var(--ink);
+    transition:transform .25s ease,opacity .25s ease
+}
+
+.menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+
+.menu-toggle.open span:nth-child(2){opacity:0}
+
+.menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+html,body{max-width:100%;overflow-x:hidden}
+
+@media (max-width:1180px){
+    .wrap{padding-left:28px;padding-right:28px} 
+    header .wrap{gap:18px} nav{gap:22px}
+    .header-actions .btn{padding-left:18px;padding-right:18px}
+    .team-banner h1{font-size:clamp(46px,5vw,62px)}
+    .services-grid.cols-4{grid-template-columns:repeat(2,1fr)}
+    .presence .wrap{grid-template-columns:1fr 1fr}
+    .team-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+@media (max-width:900px){
+    header .wrap{height:64px}
+    .logo-mark img{height:46px}
+    nav{display:none}
+    .header-actions .btn-ghost{display:none}
+    .header-actions .btn-primary{padding:10px 15px;font-size:12px}
+    .menu-toggle{display:flex}
+    nav.open{
+        display:flex;
+        position:absolute;
+        top:64px;
+        left:0;right:0;
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        padding:8px 22px 14px;
+        background:rgba(255,255,255,.98);
+        border-top:1px solid var(--line);
+        border-bottom:1px solid var(--line);
+        box-shadow:0 14px 30px rgba(0,0,0,.08)
+    }
+    nav.open a{
+        padding:14px 4px;
+        font-size:14px;
+        border-bottom:1px solid var(--line)
+    }
+    nav.open a:last-child{border-bottom:0}
+    nav.open a::after{display:none}
+    body.menu-open{overflow:hidden}
+    .team-banner{
+        min-height:760px;
+        padding-top:120px;
+        align-items:flex-end
+    }
+    .team-banner .wrap{padding-bottom:58px}
+    .team-banner-content{grid-template-columns:1fr;gap:28px}
+    .team-banner h1{
+        font-size:clamp(34px,7vw,52px);
+        line-height:1.12;
+        max-width:100%
+    }
+    .team-banner .side{max-width:620px}
+    .team-banner .side p{
+        font-size:14px;
+        line-height:1.55;
+        margin-bottom:18px
+    }
+    section{padding:82px 0}
+    .manifesto{padding:96px 0}
+    .section-head{margin-bottom:48px;gap:24px}
+    .section-head h2{max-width:100%}
+    .services-grid,.services-grid.cols-4{grid-template-columns:1fr}
+    .service-card{min-height:230px;padding:34px 28px}
+    .presence .wrap{grid-template-columns:1fr;gap:40px}
+    .presence h2{max-width:22ch}
+    .method-row{grid-template-columns:70px 1fr;gap:14px 22px}
+    .method-row p{grid-column:2}
+    .case{grid-template-columns:1fr}
+    .featured-case{grid-template-columns:1fr}
+    .fc-main,.fc-side{padding:38px 30px}
+    .fc-divider{height:1px}
+    .insights{grid-template-columns:1fr 1fr;gap:28px}
+    .credential-strip{padding:58px 0}
+    .team-grid{grid-template-columns:repeat(3,1fr);gap:20px}
+    .cta-final{padding:88px 0}
+    .footer-top{grid-template-columns:1fr 1fr;gap:40px 28px}
+    .footer-brand{grid-column:1 / -1}
+    .footer-brand img{height:80px;width:auto}
+}
+
+@media (max-width:600px){
+    .wrap{padding-left:18px;padding-right:18px}
+    header .wrap{height:60px;gap:8px}
+    .logo-mark img{height:38px;max-width:155px;object-fit:contain}
+    .header-actions{gap:7px}
+    .header-actions .btn-primary{padding:9px 11px;font-size:11px;white-space:nowrap}
+    .menu-toggle{width:38px;height:38px;padding:8px}
+    nav.open{top:60px;padding-left:18px;padding-right:18px}
+    .team-banner{min-height:700px;padding-top:100px}
+    .team-banner .wrap{padding-bottom:42px}
+    .team-banner h1{font-size:clamp(31px,9vw,42px);line-height:1.12}
+    .team-banner .side p{font-size:13.5px}
+    .team-banner .btn{width:100%;justify-content:center}
+    section{padding:68px 0}
+    .manifesto{padding:78px 0}
+    .eyebrow{font-size:10px;margin-bottom:17px}
+    .section-head{margin-bottom:38px}
+    .section-head h2{font-size:clamp(29px,8vw,38px)}
+    .section-head .sub{font-size:13.5px;max-width:100%}
+    .manifesto blockquote{font-size:clamp(27px,7.5vw,36px);line-height:1.25}
+    .service-card{min-height:0;padding:30px 24px}
+    .service-card h3{font-size:20px}
+    .service-card p{font-size:13px}
+    .chips{gap:8px}.chip{font-size:12px;padding:10px 13px}
+    .presence .wrap{gap:30px}
+    .presence h2{font-size:clamp(28px,7.5vw,36px);max-width:100%}
+    .presence-loc{padding:22px 20px;gap:15px}
+    .presence-loc h4{font-size:15px}
+    .presence-loc p{font-size:12px}
+    .method-row{grid-template-columns:1fr;gap:9px;padding:28px 0}
+    .method-row p{grid-column:auto;font-size:13px}
+    .method-row h4{font-size:20px}
+    .fc-main,.fc-side{padding:30px 22px}
+    .fc-main h3{font-size:24px}
+    .fig{font-size:38px}
+    .insights{grid-template-columns:1fr;gap:36px}
+    .insight-thumb{margin-bottom:18px}
+    .insight-card h4{font-size:19px}
+    .credential-strip{padding:48px 0}
+    .credential-strip p{font-size:18px}
+    .team-grid{grid-template-columns:repeat(2,1fr);gap:24px 14px}
+    .team-member h4{font-size:13px}
+    .team-member p{font-size:11px}
+    .cta-final{padding:72px 0}
+    .cta-final h2{font-size:clamp(30px,8vw,40px);max-width:100%;margin-bottom:30px}
+    .cta-final .btn-primary{width:100%;justify-content:center;padding:14px 20px}
+    footer{padding:58px 0 28px}
+    .footer-top{grid-template-columns:1fr;gap:34px}
+    .footer-brand{grid-column:auto}
+    .footer-brand img{height:70px}
+    .footer-brand p{max-width:100%;font-size:12.5px}
+    .footer-col a{font-size:13px;margin-bottom:11px}
+    .footer-bottom{flex-direction:column;align-items:flex-start;gap:14px;padding-top:24px}
+    .footer-legal{line-height:1.6}
+}
+
+@media (max-width:380px){
+    .logo-mark img{height:34px;max-width:120px}
+    .header-actions .btn-primary{font-size:10.5px;padding:8px 9px}
+    .menu-toggle{width:36px;height:36px}
+    .team-banner h1{font-size:30px}
+    .team-grid{gap:22px 10px}
 }
