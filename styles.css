@@ -948,7 +948,7 @@ footer{
 
     nav{display: none;}
 
-    header .btn-ghost{display: none;}
+    /*header .btn-ghost{display: none;}*/
 
     .team-banner{
         align-items: flex-start;
