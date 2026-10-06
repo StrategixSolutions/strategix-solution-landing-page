@@ -103,7 +103,7 @@ header .wrap{
 }
 
 .logo-mark img{
-    height: 110px;
+    height: 60px;
     width: auto;
     display: block;
     border-radius: 3px;
@@ -280,8 +280,14 @@ footer{
     border-bottom: 1px solid var(--line);
 }
 
-.footer-brand img{
-    height: 110px;
+.footer-logos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logos img {
+    height: 60px;
     width: auto;
     border-radius: 3px;
     user-select: none;
@@ -423,7 +429,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 @media (max-width:900px){
     header .wrap{height:64px}
-    .logo-mark img{height:110px}
+    .logo-mark img{height:60px}
     nav{display:none}
     .header-actions .btn-ghost{display:none}
     .header-actions .btn-primary{padding:10px 15px;font-size:12px}
@@ -488,13 +494,13 @@ html,body{max-width:100%;overflow-x:hidden}
     .cta-final{padding:88px 0}
     .footer-top{grid-template-columns:1fr 1fr;gap:40px 28px}
     .footer-brand{grid-column:1 / -1}
-    .footer-brand img{height:80px;width:auto}
+    .footer-logos img{height:80px;width:auto}
 }
 
 @media (max-width:600px){
     .wrap{padding-left:18px;padding-right:18px}
     header .wrap{height:60px;gap:8px}
-    .logo-mark img{height:110px;max-width:155px;object-fit:contain}
+    .logo-mark img{height:60px;max-width:155px;object-fit:contain}
     .header-actions{gap:7px}
     .header-actions .btn-primary{padding:9px 11px;font-size:11px;white-space:nowrap}
     .menu-toggle{width:38px;height:38px;padding:8px}
@@ -540,7 +546,7 @@ html,body{max-width:100%;overflow-x:hidden}
     footer{padding:58px 0 28px}
     .footer-top{grid-template-columns:1fr;gap:34px}
     .footer-brand{grid-column:auto}
-    .footer-brand img{height:70px}
+    .footer-logos img{height:60px}
     .footer-brand p{max-width:100%;font-size:12.5px}
     .footer-col a{font-size:13px;margin-bottom:11px}
     .footer-bottom{flex-direction:column;align-items:flex-start;gap:14px;padding-top:24px}
@@ -548,7 +554,7 @@ html,body{max-width:100%;overflow-x:hidden}
 }
 
 @media (max-width:380px){
-    .logo-mark img{height:110px;max-width:120px}
+    .logo-mark img{height:6px;max-width:120px}
     .header-actions .btn-primary{font-size:10.5px;padding:8px 9px}
     .menu-toggle{width:36px;height:36px}
     .team-banner h1{font-size:30px}
