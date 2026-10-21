@@ -176,7 +176,7 @@ nav a:hover::after{width: 100%;}
 
 /* ---------- HERO ---------- */
 .blog-hero{
-    background-color: var(--blue);
+    background-color: var(--carbon);
     color: var(--white);
     padding: 76px 0;
     margin: 60px;

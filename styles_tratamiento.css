@@ -176,7 +176,7 @@ nav a:hover::after{width: 100%;}
 
 /* ---------- HERO ---------- */
 .policy-hero{
-    background: var(--blue);
+    background: var(--carbon);
     color: var(--white);
     padding: 76px 0;
     margin-bottom: 60px;
