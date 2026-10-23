@@ -202,15 +202,6 @@ nav a:hover::after{width: 100%;}
     opacity: 0.9;
 }
 
-.team-banner{
-    position: relative;
-    min-height: 88vh;
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-    background: linear-gradient(180deg, #3a3a3c, #232325 55%, #141416);
-}
-
 .team-banner-content{
     display: block;
     position: absolute;
