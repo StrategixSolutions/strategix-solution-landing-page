@@ -211,12 +211,6 @@ nav a:hover::after{width: 100%;}
     background: linear-gradient(180deg, #3a3a3c, #232325 55%, #141416);
 }
 
-.team-banner .photo-overlay{
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(3,23,64,0.15) 0%, rgba(10,10,11,0.15) 40%, rgba(10,10,11,0.82) 100%);
-}
-
 .team-banner-content{
     display: block;
     position: absolute;
