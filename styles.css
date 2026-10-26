@@ -1085,12 +1085,20 @@ html,body{max-width:100%;overflow-x:hidden}
     nav.open a::after{display:none}
     body.menu-open{overflow:hidden}
     .team-banner{
-        min-height:760px;
-        padding-top:120px;
-        align-items:flex-end
+        min-height: 49svh;
+        transform: translateY(15px);
+    }
+    .team-banner .photo-layer {
+        object-position: center 35%;
     }
     .team-banner .wrap{padding-bottom:58px}
-    .team-banner-content{grid-template-columns:1fr;gap:28px}
+    .team-banner-content{
+        display: block;
+        position:absolute;
+        left: 30px;
+        bottom: 20px;
+        z-index: 3;
+    }
     .team-banner h1{
         font-size:clamp(34px,7vw,52px);
         line-height:1.12;
