@@ -1141,8 +1141,20 @@ html,body{max-width:100%;overflow-x:hidden}
     .header-actions .btn-primary{padding:9px 11px;font-size:11px;white-space:nowrap}
     .menu-toggle{width:38px;height:38px;padding:8px}
     nav.open{top:60px;padding-left:18px;padding-right:18px}
-    .team-banner{min-height:700px;padding-top:100px}
-    .team-banner .wrap{padding-bottom:42px}
+    .team-banner{
+        min-height: 3svh;
+        transform: translateY(22px);
+    }
+    .team-banner .photo-layer {
+        object-position: center 37%;
+    }
+    .team-banner .wrap{padding-bottom:65px}
+    .team-banner-content{
+        display: block;
+        position:absolute;
+        left: 30px;
+        bottom: 1px;
+    }
     .team-banner h1{font-size:clamp(31px,9vw,42px);line-height:1.12}
     .team-banner .side p{font-size:13.5px}
     .team-banner .btn{width:100%;justify-content:center}
