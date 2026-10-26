@@ -1015,6 +1015,22 @@ footer{
     flex-shrink:0
 }
 
+.team-banner{
+    min-height: 49svh;
+    transform: translateY(15px);
+}
+
+.team-banner .photo-layer {
+    object-position: center 35%;
+}
+
+.team-banner-content{
+    display: block;
+    position:absolute;
+    left: 200px;
+    bottom: 70px;
+}
+
 .menu-toggle{
     display:none;
     width:42px;
