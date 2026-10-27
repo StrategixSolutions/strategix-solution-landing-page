@@ -1015,7 +1015,7 @@ footer{
     flex-shrink:0
 }
 
-.team-banner{
+/*.team-banner{
     min-height: 49svh;
     transform: translateY(15px);
 }
@@ -1029,7 +1029,7 @@ footer{
     position:absolute;
     left: 200px;
     bottom: 70px;
-}
+}*/
 
 .menu-toggle{
     display:none;
